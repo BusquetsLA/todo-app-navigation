@@ -1,11 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { global } from './styles/global';
 
-const Task = () => {
+const Task = ({ navigation }) => {
+  const goToHome = () => {
+    navigation.pop(); // it'll take you to the previous page
+    // navigation.goBack(); // another way
+  };
+
   return (
     <View style={global.container}>
-      <Text>Home</Text>
+      <Text>Task</Text>
+      <Button title='Back to home' onPress={goToTask}/>
     </View>
   );
 };
