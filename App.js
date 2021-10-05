@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import MyStack from './routes/MyStack';
 import { global } from './styles/global';
 
 export default function App() {
   return (
-    <View style={global.container}>
-      <Text>App</Text>
-    </View>
+    <NavigationContainer style={global.container}>
+      <MyStack />
+    </NavigationContainer>
   );
 };
