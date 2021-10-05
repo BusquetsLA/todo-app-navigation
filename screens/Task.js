@@ -11,7 +11,7 @@ const Task = ({ navigation, route }) => {
   return (
     <View style={global.container}>
       <Text>{route.params.task}</Text>
-      <Button title='Back to home' onPress={goToTask}/>
+      <Button title='Back to home' onPress={goToHome}/>
     </View>
   );
 };
