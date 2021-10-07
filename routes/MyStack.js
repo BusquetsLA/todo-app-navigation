@@ -3,19 +3,32 @@ import { createStackNavigator }
 from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Task from '../screens/Task';
+import About from '../screens/About';
 
 const Stack = createStackNavigator();
+const screenOptionStyle = {
+  headerStyle: { // header styles
+    backgroundColor: 'red',
+  },
+  headerTintColor: 'white',
+  headerTitleStyle: 'bold',
+};
 
-const MyStack = () => {
+const AboutStack = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen
+        name='About'
+        component={About}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const HomeStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={{ // the general styles for the header on both screens
-        headerStyle: {
-          backgroundColor: 'red',
-        },
-        headerTintColor: 'white',
-        headerTitleStyle: 'bold',
-      }}>
+      screenOptions={screenOptionStyle}>
       <Stack.Screen
         name='Home'
         component={Home}
@@ -31,4 +44,4 @@ const MyStack = () => {
   );
 };
 
-export default MyStack;
+export { AboutStack, HomeStack };
