@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
     <View style={global.container}>
       <TextInput
         style={styles.input}
-        placeholder='Add nex task'
+        placeholder='Add new task'
         onChangeText={handleChange}
       />
       <Button
