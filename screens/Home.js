@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { global } from '../styles/global';
 
 const Home = ({ navigation }) => {
   const tasks = useSelector(state => state.tasks);
+  const dispatch = useDispatch();
   const [text, setText] = useState('');
   const handleChange = (val) => {
     setText(val);
   }
+  const handleSubmit = (text) => dispatch(addTask(text));
 
   return (
     <View style={global.container}>
@@ -20,7 +22,7 @@ const Home = ({ navigation }) => {
       <Button
         title='Add'
         color='blue'
-        onPress={() => addTask(text)}
+        onPress={() => handleSubmit(text)}
       />
       <FlatList
         data={tasks}
