@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
-import { View, Text, Button, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux'
 import { global } from '../styles/global';
 
 const Home = ({ navigation }) => {
-  const [tasks, setTasks] = useState([
-    {"task":"HTML I","done":true,"id":"1"},
-    {"task":"CSS","done":true,"id":"2"},
-    {"task":"Responsive design","done":true,"id":"3"},
-    {"task":"Git","done":true,"id":"4"},
-    {"task":"JavaScript I","done":true,"id":"5"},
-    {"task":"JavaScript II","done":false,"id":"6"},
-  ]);
+  const tasks = useSelector(state => state.tasks);
+  const [text, setText] = useState('');
+  const handleChange = (val) => {
+    setText(val);
+  }
 
   return (
     <View style={global.container}>
+      <TextInput
+        style={styles.input}
+        placeholder='Add nex task'
+        onChangeText={handleChange}
+      />
+      <Button
+        title='Add'
+        color='blue'
+        onPress={() => addTask(text)}
+      />
       <FlatList
         data={tasks}
         renderItem={({ item }) => (
           <TouchableOpacity
+            style={global.item}
             onPress={() => navigation.navigate('Task', item)}
           >
             <Text>{item.task}</Text>
@@ -27,5 +36,14 @@ const Home = ({ navigation }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    margin:10,
+    paddingVertical: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey',
+  },
+});
 
 export default Home;
