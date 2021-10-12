@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask, deleteTask } from '../redux/taskActions';
+import { addTask, deleteTask, doneTask } from '../redux/taskActions';
 import { global } from '../styles/global';
 
 const Home = ({ navigation }) => {
@@ -13,6 +13,7 @@ const Home = ({ navigation }) => {
   }
   const handleSubmit = (text) => dispatch(addTask(text));
   const removeTask = (id) => dispatch(deleteTask(id));
+  const finishTask = (id) => dispatch(doneTask(id));
 
   return (
     <View style={global.container}>
@@ -33,7 +34,12 @@ const Home = ({ navigation }) => {
             style={global.item}
             onPress={() => navigation.navigate('Task', item)}
           >
-            <Text>{item.task}</Text>
+            <Text
+              style={item.done ? null : {fontWeight: 'bold'}}
+              onPress={() => finishTask(item.id)}
+            >
+              {item.task}
+            </Text>
             <Button
               title='Delete'
               onPress={() => removeTask(item.id)}
