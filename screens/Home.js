@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderBottomWidth: 1,
     borderBottomColor: 'grey',
-  },
+  }
 });
 
 export default Home;
