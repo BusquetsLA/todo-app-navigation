@@ -1,14 +1,7 @@
 import { ADD_TASK, DELETE_TASK, DONE_TASK } from './taskTypes';
 
 const initialState = {
-  tasks: [
-    {"task":"HTML I","done":false,"id":"1"},
-    {"task":"CSS","done":false,"id":"2"},
-    {"task":"Responsive design","done":false,"id":"3"},
-    {"task":"Git","done":false,"id":"4"},
-    {"task":"JavaScript I","done":false,"id":"5"},
-    {"task":"JavaScript II","done":false,"id":"6"},
-  ]
+  tasks: [],
 }
 
 const taskReducer = (state = initialState, action) => {
