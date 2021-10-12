@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import { global } from './styles/global';
+import global from '../styles/global';
 
 const Done = () => {
   const tasks = useSelector(state => state.tasks);

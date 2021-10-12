@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask, deleteTask, doneTask } from '../redux/taskActions';
-import { global } from '../styles/global';
+import global from '../styles/global';
 
 const Home = ({ navigation }) => {
   const tasks = useSelector(state => state.tasks);

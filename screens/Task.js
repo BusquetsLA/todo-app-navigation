@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native';
-import { global } from './styles/global';
+import global from '../styles/global';
 
 const Task = ({ navigation, route }) => {
   const goToHome = () => {

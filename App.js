@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { global } from './styles/global';
+import global from './styles/global';
 import MyDrawer from './routes/MyDrawer';
 import store from './redux/store';
 import { Provider } from 'react-redux';
