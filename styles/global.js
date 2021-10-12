@@ -1,5 +1,6 @@
+'use strict';
 import { StyleSheet } from 'react-native';
-export const global = StyleSheet.create({
+const global = StyleSheet.create({
   container: {
     padding: 30,
   },
@@ -14,3 +15,5 @@ export const global = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
+
+export default global;
