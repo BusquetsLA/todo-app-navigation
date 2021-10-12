@@ -11,7 +11,12 @@ const Home = ({ navigation }) => {
   const handleChange = (val) => {
     setText(val);
   }
-  const handleSubmit = (text) => dispatch(addTask(text));
+  const handleSubmit = (text) => {
+    if (text) {
+      dispatch(addTask(text));
+      setText('');
+    }
+  };
   const removeTask = (id) => dispatch(deleteTask(id));
   const finishTask = (id) => dispatch(doneTask(id));
 

@@ -13,14 +13,8 @@ const Done = () => {
       <FlatList
         data={tasksDone}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={global.item}
-            onPress={() => navigation.navigate('Task', item)}
-          >
-            <Text
-              style={item.done ? null : {fontWeight: 'bold'}}
-              onPress={() => finishTask(item.id)}
-            >
+          <TouchableOpacity style={global.item}>
+            <Text>
               {item.task}
             </Text>
           </TouchableOpacity>
