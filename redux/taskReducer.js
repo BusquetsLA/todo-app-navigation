@@ -20,7 +20,7 @@ const taskReducer = (state = initialState, action) => {
           ...state.tasks, {
             task: action.payload,
             done: false,
-            id: Math.random() // un id de morondanga pero sirve para el caso
+            id: Math.random().toString() // un id de morondanga pero sirve para el caso
           }
         ]
       }
