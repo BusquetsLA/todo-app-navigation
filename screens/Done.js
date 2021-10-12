@@ -6,6 +6,7 @@ import { global } from './styles/global';
 const Done = () => {
   const tasks = useSelector(state => state.tasks);
   const tasksDone = tasks.filter(item => item.done === true);
+
   return (
     <View style={global.container}>
       <Text>Tasks done:</Text>
